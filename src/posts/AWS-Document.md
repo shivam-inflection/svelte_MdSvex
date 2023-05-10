@@ -1,3 +1,12 @@
+---
+title: What is Cloud Computing
+description:
+date: '2023-Apr-16'
+categories:
+  - Aws
+published: true
+imageScr: "/cloud.jpeg"
+---
 # What is Cloud Computing
 
 - Cloud computing is on demand delivery of IT resources (compute, storage, application) through cloud services platform (AWS, Azure, GCP etc) via internet with pay as you go pricing.
@@ -22,7 +31,7 @@
 - Each type of cloud service and deployment method provides you with different levels of control, flexibility, and management.
 - **Cloud Computing Models**: 1. **Infrastructure as a Service (IaaS)**: Infrastructure as a Service (IaaS) contains the basic building blocks for cloud IT and typically provides access to networking features, computers (virtual or on dedicated hardware), and data storage space. IaaS provides you with the highest level of flexibility and management control over your IT resources and is most similar to existing IT resources that many IT departments and developers are familiar with today. 2. **Platform as a Service (PaaS)**: Platform as a Service (PaaS) removes the need for your organization to manage the underlying infrastructure (usually hardware and operating systems) and allows you to focus on the deployment and management of your applications. This helps you be more efficient as you don’t need to worry about resource procurement, capacity planning, software maintenance, patching, or any of the other undifferentiated heavy lifting involved in running your application. 3. **Software as a Service (SaaS)**: Software as a Service (SaaS) provides you with a completed product that is run and managed by the service provider. In most cases, people referring to Software as a Service are referring to end-user applications. With a SaaS offering you do not have to think about how the service is maintained or how the underlying infrastructure is managed; you only need to think about how you will use that particular piece of software.
   &nbsp;<br>
-  <img src="service model.png" width="900" height="400"/>
+  <img src="/images/Aws-document/service model.png" width="900" height="400"/>
 
 &nbsp;<br>
 
@@ -60,71 +69,71 @@
 
   1. Login to AWS management console as a root user.
   2. We can see following screen. Select desired region. Then click on "Services" tab to browse AWS services.
-     <img src="EC2-1.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-1.png" width="900" height="300"/>
      &nbsp;<br>
   3. Select EC2 service. On the next screen, select instances. Then following screen appears. Click on "Launch Instances"
-     <img src="EC2-2.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-2.png" width="900" height="300"/>
      &nbsp;<br>
   4. On the next screen, we have to give desired specifications for our instance. Give any name you want, then select AMI (Amazon machine image - OS for our instance). Note- If you are using free tier account, select free tier eligible AMI.
-     <img src="EC2-3.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-3.png" width="900" height="300"/>
      &nbsp;<br>
   5. Then select right instance type. It is nothing but the CPU & RAM configurations. Then for key-pair (required for login into instance), click on "Create new key-pair".
-     <img src="EC2-4.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-4.png" width="900" height="300"/>
      &nbsp;<br>
   6. In network settings, select desired VPC (here, we are using AWS default VPC), then subnet (It is nothing but the availability zone. In Mumbai region, there are 3 subnets, you may select any of them or if you give no prference, AWS decides where to launch your instance), enable auto-assign public IP.
-     <img src="EC2-5.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-5.png" width="900" height="300"/>
      &nbsp;<br>
   7. Then set firewall (security group). Click on "Create new security group". Give it a name & description. Then add rule. (Here we are creating Linux instance, so we are opening SSH port no.22 because we will remotely access our linux instance through ssh. For windows instance, you need to add RDP rule in this section). We may add more than one rule to this section. In source type there are 3 options- anywhere, custom & my ip. (If you select anywhere, it means anyone from anywhere can access your instance. With custom, we may specify any custom IP to access instance. With 'my ip', instance can only be accessed by your IP address).
-     <img src="EC2-6.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-6.png" width="900" height="300"/>
      &nbsp;<br>
   8. Add storage. For free tier, it is providing 8Gb storage. If you want more you may increase it or you may add more volumes to it.
   9. Click on "Launch instance".
   10. Instance will get ready in few seconds. Click on "View all instances". You may see your instance running.
-      <img src="EC2-7.png" width="900" height="300"/>
+      <img src="/images/Aws-document/EC2-7.png" width="900" height="300"/>
       &nbsp;<br>
 
 - Steps to access EC2 instance with Mobaxterm:
 
   1.  Download & install Mobaxterm.(https://download.mobatek.net/2222022102210348/MobaXterm_Portable_v22.2.zip)
   2.  Go to AWS EC2. Slect running instance. Click on "Details". We can see here our instance has got two IPs - public IP & private IP.
-      <img src="EC2-8.png" width="900" height="300"/>
+      <img src="/images/Aws-document/EC2-8.png" width="900" height="300"/>
       &nbsp;<br>
   3.  Copy public IP of the instance. Go to Mobaxterm. Click on "Session" to start new session. Then click on "SSH". Paste copied public IP in "Host" field. Login as "ec2-user". Then click on "Advanced SSH Settings". Use private key you have created. Click on "Ok".
-      <img src="EC2-9.png" width="900" height="300"/>
+      <img src="/images/Aws-document/EC2-9.png" width="900" height="300"/>
       &nbsp;<br>
   4.  Now you are logged in into your instance. You can now access your instance.
-      <img src="EC2-10.png" width="900" height="300"/>
+      <img src="/images/Aws-document/EC2-10.png" width="900" height="300"/>
       &nbsp;<br>
 
 - Steps to create & access windows instance:
 
   1. Go to EC2 service. Click on "Launch instances". Give name to your Instance. Select windows AMI (Free tier eligible).
-     <img src="EC2-11.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-11.png" width="900" height="300"/>
      &nbsp;<br>
 
   2. Select instance type (Free tier eligible). Then select previously created key-pair or create new. (Note: You may use single key-pair for maximum 500 instances.)
-     <img src="EC2-12.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-12.png" width="900" height="300"/>
      &nbsp;<br>
   3. In network settings, as we done with linux instance, select AWS default VPC, select subnet, enable public IP.
   4. To set firewall (i.e. security group), select type RDP, because we access windows instance through rdp client port no. 3389.
-     <img src="EC2-13.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-13.png" width="900" height="300"/>
      &nbsp;<br>
 
   5. Configure storage. And then click on "Launch instance".
   6. Select instance & click on "connect".
-     <img src="EC2-14.png" width="800" height="250"/>
+     <img src="/images/Aws-document/EC2-14.png" width="800" height="250"/>
      &nbsp;<br>
   7. Then select RDP Client. Then "Download remote desktop file". Click on "Get password".
-     <img src="EC2-15.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-15.png" width="900" height="300"/>
      &nbsp;<br>
   8. It opens following window. Click on "Upload private key file".
-     <img src="EC2-16.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-16.png" width="900" height="300"/>
      &nbsp;<br>
   9. Upload key-pair we have created. Then click on "Decrypt password". Then we will get password to login into our instance. Copy that password.
-     <img src="EC2-17.png" width="900" height="300"/>
+     <img src="/images/Aws-document/EC2-17.png" width="900" height="300"/>
      &nbsp;<br>
   10. Open downloaded RDP client & click on "Connect".
-      <img src="EC2-18.png" width="800" height="250"/>
+      <img src="/images/Aws-document/EC2-18.png" width="800" height="250"/>
       &nbsp;<br>
   11. Then paste the copied password. Click on "OK". Then click on "Yes". You are logged into your windows instance.
 
@@ -133,7 +142,7 @@
   1. Go to EC2 service. Click on "Launce instances".
   2. Give name to instance. Select amazon linux AMI. Then select right instance type. Select previously created key-pair.
   3. In network settings, select AWS default VPC, subnet, enable auto assign public IP. Then in security group, we have to add "HTTP" rule, as we are deploying webserver & we will see the webpage in web browser.
-     <img src="EC2-20.png" width="800" height="250"/>
+     <img src="/images/Aws-document/EC2-20.png" width="800" height="250"/>
      &nbsp;<br>
   4. Then configure storage as per your requirement. Go to Advanced details. Scroll down & you will see "User data" section at the bottom. Add following script to it.
      ```
@@ -144,10 +153,10 @@
      service httpd start
      chkconfig httpd on
      ```
-     <img src="EC2-21.png" width="800" height="250"/>
+     <img src="/images/Aws-document/EC2-21.png" width="800" height="250"/>
      &nbsp;<br>
   5. Click on "Launch instance". Click on "View all instances". Select instance & copy it's public IP address. Paste it in browser & you will see the message.
-     <img src="EC2-22.png" width="800" height="250"/>
+     <img src="/images/Aws-document/EC2-22.png" width="800" height="250"/>
      &nbsp;<br>
 
 - **Instance Types**: Amazon EC2 provides a wide selection of instance types optimized to fit different use cases. Instance types comprise varying combinations of CPU, memory, storage, and networking capacity and give you the flexibility to choose the appropriate mix of resources for your applications. Each instance type includes one or more instance sizes, allowing you to scale your resources to the requirements of your target workload.
@@ -197,25 +206,25 @@
 * Steps to create EBS volume & attach to instance: 
    1. Login to AWS management console. Create one linux EC2 instance.
    2. Then go to Elastic Block Store & click on volumes.
-      <img src="EBS-1.png" width="800" height="250"/>
+      <img src="/images/Aws-document/EBS-1.png" width="800" height="250"/>
      &nbsp;<br>
    3. We may see the volume we have attached during instance creation steps. Now click on "Create Volume". Then specify required details like volume type (ssd), size (10 GB), availablility zone(same as instance), tag to the volume. Click on "Create Volume"
-      <img src="EBS-2.png" width="800" height="250"/>
+      <img src="/images/Aws-document/EBS-2.png" width="800" height="250"/>
      &nbsp;<br>
    4. You may now see your added volume in volumes list. When status of volume is changed to "Available", select volume, go to "Actions", click on "Attache volume" 
-      <img src="EBS-3.png" width="800" height="250"/>
+      <img src="/images/Aws-document/EBS-3.png" width="800" height="250"/>
      &nbsp;<br>
-     <img src="EBS-4.png" width="800" height="250"/>
+     <img src="/images/Aws-document/EBS-4.png" width="800" height="250"/>
      &nbsp;<br>
    5. Select instance to which we want to attache this volume. Then click on "Attach Volume"
-      <img src="EBS-5.png" width="800" height="250"/>
+      <img src="/images/Aws-document/EBS-5.png" width="800" height="250"/>
      &nbsp;<br>
 
    6. Login into instance using mobaxterm. Switch user to root. Then type `df -h` to see the local filesystem. It does not show our attached volume. So type `lsblk` to display details about block devices. In this list we can see our added volume.
-      <img src="EBS-6.png" width="800" height="250"/>
+      <img src="/images/Aws-document/EBS-6.png" width="800" height="250"/>
      &nbsp;<br>
    7. So we have to mount this volume block to our filesystem. For that first format the disk using `mkfs.ext4 /dev/xvdf` command. (Here "/dev/xvdf" is device name of my volume. You may use yours.) Then create one datapoint to mount this volume with `mkdir /data`. Mount volume to this datapoint using `mount /dev/xvdf /data`. Now again check local filesystem using `df -h`. You may now see our added volume in this list. 
-      <img src="EBS-7.png" width="800" height="250"/>
+      <img src="/images/Aws-document/EBS-7.png" width="800" height="250"/>
      &nbsp;<br>
 
 # Amazon EFS: 
@@ -228,30 +237,30 @@
    2. One Zone storage classes – EFS One Zone and EFS One Zone–Infrequent Access (EFS One Zone–IA), which offer you the choice of additional savings by choosing to save your data in a single Availability Zone.
 
 * The following image shows multiple EC2 instances accessing an Amazon EFS file system that is configured with Standard storage classes from multiple Availability Zones in an AWS Region.
-   <img src="EFS-1.png" width="900" height="250"/>
+   <img src="/images/Aws-document/EFS-1.png" width="900" height="250"/>
      &nbsp;<br>
 * The following image shows multiple EC2 instances accessing an Amazon EFS file system using One Zone storage from different Availability Zones in an AWS Region.
-   <img src="EFS-2.png" width="900" height="250"/>
+   <img src="/images/Aws-document/EFS-2.png" width="900" height="250"/>
      &nbsp;<br>
 * Steps to create EFS & access it with EC2 instance:
    1. Login to AWS management console. Search "EFS" in services. Go to EFS. Click on "Create file system".
-      <img src="EFS-3.png" width="900" height="250"/>
+      <img src="/images/Aws-document/EFS-3.png" width="900" height="250"/>
      &nbsp;<br>
    2. Fill the required details like name, select VPC (AWS default), select standard storage class. Click on "Create".
-      <img src="EFS-4.png" width="900" height="250"/>
+      <img src="/images/Aws-document/EFS-4.png" width="900" height="250"/>
      &nbsp;<br>
    3. Go to security groups. Create new security group with inbound rule "NFS" port no. 2049 open for everyone.
-       <img src="EFS-5.png" width="900" height="250"/>
+       <img src="/images/Aws-document/EFS-5.png" width="900" height="250"/>
      &nbsp;<br>
    4. Go to EFS. Click on created file system. Go to "Network Tab", click on "Manage". For all Availability Zones, select newly created security group & save. 
-      <img src="EFS-6.png" width="900" height="250"/>
+      <img src="/images/Aws-document/EFS-6.png" width="900" height="250"/>
      &nbsp;<br>
    5. Create an EC2 instance with inbound rule NFS port no.2049 open for everyone. 
    6. Go to EFS. Click on created file system. Click on "Attach". Copy the last command.
-      <img src="EFS-7.png" width="900" height="250"/>
+      <img src="/images/Aws-document/EFS-7.png" width="900" height="250"/>
      &nbsp;<br>
    7. Access EC2 instance using MObaxterm. Create new directory "data1". Paste copied command. Instead of /efs in command type /data1 (name of mountpoint you've created). Then use `df -h` to see the local filesystem. You may see that EFS is mounted on data1. Now you may add whatever you want to this like files, folders etc. 
-      <img src="EFS-8.png" width="900" height="250"/>
+      <img src="/images/Aws-document/EFS-8.png" width="900" height="250"/>
      &nbsp;<br>
 
 # Amazon Elastic Load Balancing
@@ -308,47 +317,47 @@
    chkconfig httpd on
 ```
    2. Go to load balancers. Click on "Create on Loadbalancer". Select classic load balancer. Click on "Create"
-      <img src="ELB-2.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-2.png" width="900" height="250"/>
      &nbsp;<br>
    3. Give name to loadbalancer. Select VPC. Click on "Next".
-      <img src="ELB-3.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-3.png" width="900" height="250"/>
      &nbsp;<br>
    4. Click on "Create new security group". Add SSH & HTTP rules open for everyone. Click on "Next:Configure Health Check"
-      <img src="ELB-4.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-4.png" width="900" height="250"/>
      &nbsp;<br>
    5. Add details to configure health check. Click on "Next:Add EC2 instances"
-      <img src="ELB-5.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-5.png" width="900" height="250"/>
      &nbsp;<br>
    6. Select EC2 instances we want to configure. 
-      <img src="ELB-6.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-6.png" width="900" height="250"/>
      &nbsp;<br>
    7. Add tag. Click on "Review & create". Then select loadbalancer. In description tab, copy DNS name.
-      <img src="ELB-7.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-7.png" width="900" height="250"/>
      &nbsp;<br>
    8. Paste DNS name into browser. You may see webpage of first webserver. Then reload the page, you may see webpage of second webserver.
-      <img src="ELB-8.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-8.png" width="900" height="250"/>
      &nbsp;<br>
-     <img src="ELB-9.png" width="900" height="250"/>
+     <img src="/images/Aws-document/ELB-9.png" width="900" height="250"/>
      &nbsp;<br>
 
 * Steps to configure Application Load Balancer:
    1. Create two EC2 instances with webservers installed. 
    2. Then In the navigation pane, under Load Balancing, choose Target Groups.Choose Create target group.Under Basic configuration, keep the Target type as instance. Enter a name for the new target group. Keep the default protocol (HTTP) and port (80).Select the VPC containing your instances. Keep the protocol version as HTTP1. For Health checks, keep settings as given in below image.Choose Next.
-      <img src="ELB-10.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-10.png" width="900" height="250"/>
      &nbsp;<br>
    3. On the Register targets page, select both the instances as targets & click on "include as pending below". Then click on "Create Target Group"
-      <img src="ELB-11.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-11.png" width="900" height="250"/>
      &nbsp;<br>
    4. Go to load balancers. Click on "Create new loadbalancer".
    Select "Application loadbalancer". Click on "Create".
    5. Under basic configuration, give name to loadbalancer. Select internet facing scheme, select IP address type as IPV4. In network mapping section, select VPC, select all three subnets of VPC. Add "Loadbalancer-SG" security group we have created at the time of classic loadbalancer. Under listeners & routing, keep HTTP protocol & port 80. Select created target group. Click on "Create load balancer".
    6. Go to target group. Check whether health status of both the registered targets is "Healthy".
-      <img src="ELB-12.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-12.png" width="900" height="250"/>
      &nbsp;<br>
    7. If yes, go to loadbalancer. Copy DNS name & paste it over the browser. You may see the first server's webpage(i.e. loadbalancer is sending traffic to first webserver.). Then reload the page. Now you can see the second webpage(i.e. loadbalancer is sending the traffic to webserver-2).
-      <img src="ELB-13.png" width="900" height="250"/>
+      <img src="/images/Aws-document/ELB-13.png" width="900" height="250"/>
      &nbsp;<br>
-     <img src="ELB-14.png" width="900" height="250"/>
+     <img src="/images/Aws-document/ELB-14.png" width="900" height="250"/>
      &nbsp;<br>
    
 * Note: We use auto-scaling feature of AWS instead of alone loadbalncer in real-life scenario.
@@ -366,10 +375,10 @@
 
 * Steps to configure Auto-scaling: 
   1. Go to EC2 dashboard. Select launch templates. Click on "Create launch template".
-   <img src="Auto-1.png" width="900" height="250"/>
+   <img src="/images/Aws-document/Auto-1.png" width="900" height="250"/>
      &nbsp;<br>
   2. On create launch template page, under template name & description section give details like shown in below image.
-   <img src="Auto-2.png" width="900" height="250"/>
+   <img src="/images/Aws-document/Auto-2.png" width="900" height="250"/>
      &nbsp;<br>
   3. Under "Launch template contents" section, select linux AMI, instance type t2.micro, existing key-pair, existing security group, EBS 8GB storage, give resource tag as "MyTemp". Then under advanced details, inside user data section, put below code. Then click on "Create launch template"
    ```
@@ -381,25 +390,25 @@
       chkconfig httpd on
    ```
   4. Go to "Auto Scaling Groups" Click on "Create Auto Scaling group".
-   <img src="Auto-3.png" width="900" height="250"/>
+   <img src="/images/Aws-document/Auto-3.png" width="900" height="250"/>
      &nbsp;<br>
   5. On "Choose launch template or configuration" page, give name to autoscaling group & select created launch template, version 1. Click on "Next".
   6. Under Network section, select default VPC , all availabilty zones &subnets. Click on "Next".
   7. On next page, provide configuration as given in image below. Click on "Next"
-   <img src="Auto-4.png" width="900" height="250"/>
+   <img src="/images/Aws-document/Auto-4.png" width="900" height="250"/>
      &nbsp;<br>
   8. On "Configure group size and scaling policies" page, give following configuration. Click on "Next" again "Next".
-   <img src="Auto-5.png" width="900" height="250"/>
+   <img src="/images/Aws-document/Auto-5.png" width="900" height="250"/>
      &nbsp;<br>
   9. Add tags. Click on "Next". Review the configuration once & then click on "Create Auto Scaling group".
   10. As soon as you create auto scaling group, it creates minimum number (you have provided during configuration) of instances. Here we want minimum 2 instances. 
-   <img src="Auto-6.png" width="900" height="250"/>
+   <img src="/images/Aws-document/Auto-6.png" width="900" height="250"/>
      &nbsp;<br>
   11. If we stop or terminate any instance, it will immediately create one new instance. Or if we terminate both it will start creating two new instances.
-   <img src="Auto-7.png" width="900" height="250"/>
+   <img src="/images/Aws-document/Auto-7.png" width="900" height="250"/>
      &nbsp;<br>
 
-      <img src="Auto-7.png" width="900" height="250"/>
+      <img src="/images/Aws-document/Auto-7.png" width="900" height="250"/>
      &nbsp;<br>
 
 * Features of AWS Auto Scaling:
@@ -425,22 +434,22 @@
 
 * Steps to create S3 bucket:
    1. Login to AWS management console. Search for S3 in services. Go to S3. Click on "Create bucket".
-      <img src="s3-1.png" width="800" height="250"/>
+      <img src="/images/Aws-document/s3-1.png" width="800" height="250"/>
      &nbsp;<br>
    2. On create bucket page, give bucket a name. Bucket name should be unique gloabally. Select desired AWS region. In object ownership section, select ACL enabled, select object writer as object owner.
-      <img src="s3-2.png" width="800" height="300"/>
+      <img src="/images/Aws-document/s3-2.png" width="800" height="300"/>
      &nbsp;<br>
    3. Then disable "Block public access". Tick "I acknowledge" & disable bucket versioning. Click on "Create bucket".
-      <img src="s3-3.png" width="800" height="300"/>
+      <img src="/images/Aws-document/s3-3.png" width="800" height="300"/>
      &nbsp;<br>
    4. You may see your created bucket in buckets list.
-      <img src="s3-4.png" width="800" height="300"/>
+      <img src="/images/Aws-document/s3-4.png" width="800" height="300"/>
      &nbsp;<br>
    5. Click on bucket name. You will see the following page. Here you can create new folder or upload files & folders from your local machine.
-      <img src="s3-5.png" width="800" height="300"/>
+      <img src="/images/Aws-document/s3-5.png" width="800" height="300"/>
      &nbsp;<br>
    6. Click on "Upload". On next page, click on "Add files" to add files of any format or click on "Add folder" to upload a folder. You may drag & drop files & folders here. Once added, click on upload.
-      <img src="s3-6.png" width="800" height="250"/>
+      <img src="/images/Aws-document/s3-6.png" width="800" height="250"/>
      &nbsp;<br>
    7. You can now see your uploaded files & folders to S3 Bucket. You can see that by default it will take storage class as S3 standard. Here you may change storage class, download these files, delete files, make them public, and many more operations.
 
@@ -475,15 +484,15 @@
 *  Steps to mount S3 bucket in EC2 Instance: 
    1. Create S3 bucket. 
    2. Create IAM role: Go to IAM. Click on Roles. Then click on "Create role". Select entity type - AWS service, Select EC2 as use case. Click on "Next". Add permission-S3 Full Access. Give name to role & click on "Create role".
-      <img src="s3-7.png" width="800" height="250"/>
+      <img src="/images/Aws-document/s3-7.png" width="800" height="250"/>
      &nbsp;<br>
-     <img src="s3-8.png" width="800" height="250"/>
+     <img src="/images/Aws-document/s3-8.png" width="800" height="250"/>
      &nbsp;<br>
    3. Go to EC2. Create an instance. Select instance, go to Action, in security select Modify IAM role.
-      <img src="s3-9.png" width="800" height="250"/>
+      <img src="/images/Aws-document/s3-9.png" width="800" height="250"/>
      &nbsp;<br> 
    4. Choose created role. Click on "Update IAM role".
-      <img src="s3-10.png" width="800" height="250"/>
+      <img src="/images/Aws-document/s3-10.png" width="800" height="250"/>
      &nbsp;<br>
    5. Login into instance using Mobaxterm. Update system. Install the dependencies using `sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel`. Clone S3fs source code from git using `git clone https://github.com/s3fs-fuse/s3fs-fuse.git`. Now change to source code  directory, and compile and install the code with the following commands:
        ```
@@ -494,13 +503,13 @@
        sudo make install
       ```  
    Then create new directory using `mkdir /s3data`. Mount s3 bucket using command `s3fs -o iam_role=EC2S3Role myfirstbucketqweasd /s3data`.
-      <img src="s3-11.png" width="800" height="250"/>
+      <img src="/images/Aws-document/s3-11.png" width="800" height="250"/>
      &nbsp;<br>
    
    6. Create some files & folders. 
-      <img src="s3-12.png" width="800" height="250"/>
+      <img src="/images/Aws-document/s3-12.png" width="800" height="250"/>
      &nbsp;<br>
-     <img src="s3-13.png" width="800" height="250"/>
+     <img src="/images/Aws-document/s3-13.png" width="800" height="250"/>
      &nbsp;<br> 
 
 
@@ -538,31 +547,31 @@
 * Steps to create IAM User: 
    1. Login to AWS management console. Go to IAM. Go to Users. Click on "Add users". 
    2. On Add user page, Give user name, if user want programatic access then select Access key for GUI access select password. You may select both. Select Autogenerated or custom password. Click on "Next:Permission". 
-      <img src="IAM-1.png" width="800" height="250"/>
+      <img src="/images/Aws-document/IAM-1.png" width="800" height="250"/>
      &nbsp;<br> 
    3. On set permission page, click on "Attach existing policies directly". You may select permission according to your requirement. For now, I am not giving any permissions to IAM user. Add tag. Review & create user. 
    4. User is created. Download credentials file. You may also send credentials via email. 
-      <img src="IAM-2.png" width="800" height="250"/>
+      <img src="/images/Aws-document/IAM-2.png" width="800" height="250"/>
      &nbsp;<br> 
    5. You may now login to AWS management console as IAM user. Put IAM user account number. Click on "Next". Then give user name & password. And sign in. 
-      <img src="IAM-3.png" width="800" height="250"/>
+      <img src="/images/Aws-document/IAM-3.png" width="800" height="250"/>
      &nbsp;<br> 
-     <img src="IAM-4.png" width="800" height="250"/>
+     <img src="/images/Aws-document/IAM-4.png" width="800" height="250"/>
      &nbsp;<br> 
    6. On next page it will ask to reset password as it is mandatory to reset IAM user's password when use login for first time. We have set this mandatory while creating user. 
-       <img src="IAM-5.png" width="800" height="250"/>
+       <img src="/images/Aws-document/IAM-5.png" width="800" height="250"/>
      &nbsp;<br> 
    7. You are now logged in with IAM user. 
-      <img src="IAM-6.png" width="800" height="250"/>
+      <img src="/images/Aws-document/IAM-6.png" width="800" height="250"/>
      &nbsp;<br> 
    8. As we have not set any permission to IAM user so user can't access any AWS service. 
-      <img src="IAM-7.png" width="800" height="250"/>
+      <img src="/images/Aws-document/IAM-7.png" width="800" height="250"/>
      &nbsp;<br>
    9. You may edit permission of User & add EC2 access permission. Click on IAM user. Go to permission. Click on "Add permission". Select "Attach existing policies". Select "EC2 full Access". 
-      <img src="IAM-8.png" width="800" height="250"/>
+      <img src="/images/Aws-document/IAM-8.png" width="800" height="250"/>
      &nbsp;<br>
    10. Now IAM user can access EC2.
-      <img src="IAM-9.png" width="800" height="250"/>
+      <img src="/images/Aws-document/IAM-9.png" width="800" height="250"/>
      &nbsp;<br>
 
 * Steps to create User group:

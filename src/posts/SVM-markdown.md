@@ -22,7 +22,7 @@ The new points will be classified based off on which side of the hyperplane the 
 The points closest to the hyperplane are called **support vectors**.
 The separation gap between the two lines on the closest data points. is called the **margin**.
 
-<img src="svm_terms.png" width="400?"/> 
+<img src="/images/svmMd-heart-dataset/svm_terms.png" width="550px" height="280px"/> 
 
 ---
 We can understand this concept more with the help of a **heart related dataset**. This dataset can be found on kaggle: https://www.kaggle.com/datasets/nareshbhat/health-care-data-set-on-heart-attack-possibility
@@ -47,7 +47,7 @@ from sklearn.svm import SVC
 
 The dataset looks like this:
 
-<img src="data.png" width="600"/> 
+<img src="/images/svmMd-heart-dataset/data.png" width="600"/> 
 
 It consists 303 observations and 14 features. There are no null values. 
 
@@ -63,7 +63,7 @@ ax = sns.countplot(data = df, x = 'target', palette = 'hls')
 ax.bar_label(ax.containers[0])
 ```
 
-<img src="countplot_obs.png" width="350"/> 
+<img src="/images/svmMd-heart-dataset/countplot_obs.png" width="350"/> 
 
 ---
 
@@ -78,7 +78,7 @@ plt.xticks(rotation = 30)
 plt.show()
 ```
 
-<img src="boxenplot.png" width="550"/> 
+<img src="/images/svmMd-heart-dataset/boxenplot.png" width="550"/> 
 
 This plot shows that the range of the data in this dataset is quite uneven and there is an outlier in the cholestrol feature. Removing this outlier can increase the accuracy of the model.
 
@@ -91,7 +91,7 @@ We can remove the observation with this outlier with the following code:
 ```python
 df.loc[df['chol']==df['chol'].max()]
 ```
-> <img src="outlier.png" width="550"/> 
+> <img src="/images/svmMd-heart-dataset/outlier.png" width="550"/> 
 
 ```python
 df.drop(85, axis = 0, inplace = True)
@@ -111,7 +111,7 @@ X_std = pd.DataFrame(X_std, columns = list(X.columns))
 
 Now our boxenplot looks like this:
 
-<img src="boxenplot_scaled.png" width="550"/> 
+<img src="/images/svmMd-heart-dataset/boxenplot_scaled.png" width="550"/> 
 
 ---
 #### Splitting data into training and testing sets
@@ -140,7 +140,7 @@ print(model.score(X_train, y_train), model.score(X_test, y_test))
 print(classification_report(y_test, model.predict(X_test)))
 ```
 
-<img src="classification_report.png" width="450"/> 
+<img src="/images/svmMd-heart-dataset/classification_report.png" width="450"/> 
 
 #### Confusion matrix
 
@@ -149,7 +149,7 @@ cm = confusion_matrix(y_test, model.predict(X_test))
 sns.heatmap(cm, annot = True, cmap = 'Blues')
 ```
 
-<img src="confusion_matrix.png" width="300"/> 
+<img src="/images/svmMd-heart-dataset/confusion_matrix.png" width="300"/> 
 
 ### Summary
 

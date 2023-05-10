@@ -12,7 +12,7 @@
   <!-- Navigation -->
 	<ul class="links">
 		<li>
-			<a href="/about">About</a>
+			<a href="">About</a>
 		</li>
 		<li>
 			<a href="/contact">Contact</a>
@@ -29,7 +29,8 @@
 
 <style>
 	nav {
-		padding-block: var(--size-7);
+		padding-block: var(--size-4);
+		width: 92%;
 	}
 
 	.links {

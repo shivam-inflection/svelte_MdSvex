@@ -2,6 +2,7 @@
 	import { formatDate } from '$lib/utils'
 
 	export let data
+	console.log(data.content);
 </script>
 
 <!-- SEO -->
@@ -11,12 +12,38 @@
 	<meta property="og:title" content={data.meta.title} />
 </svelte:head>
 <div style="display:flex">
-<div style="width:90%">
+	<div style="width:18%">
+		<div class="scrolling_list">
+	      
+			  <div class="hr_line">
+					 <li><a href="/">Section 1</a></li>
+					 <li><a href="/">Section 2</a></li>
+					 <li><a href="/">Section 3</a></li>
+					 <li><a href="/">Section 4</a></li>
+					 <li><a href="/">Section 5</a></li>
+					 <li><a href="/">Section 6</a></li>
+				<div>
+
+				</div>
+				
+				
+			
+			</div>
+		
+			<div id="sidebar">
+				<ul id="topic-list"></ul>
+			</div>
+	</div>
+</div>
+<div style="width:62%">
 <article>
   <!-- Title -->
 	<hgroup>
-		<h1>{data.meta.title}</h1>
+		
+		<h1 >{data.meta.title}</h1>
+	
 		<p>Published at {formatDate(data.meta.date)}</p>
+	
 	</hgroup>
 
 
@@ -31,7 +58,7 @@
 	
 
   <!-- Post -->
-	<div class="prose">
+	<div class="prose" id="#section1">
 		<svelte:component this={data.content} />
 	</div>
 </article>
@@ -65,6 +92,20 @@
 </div>
 </div>
 <style>
+
+
+.hr_line {
+	 display: grid;
+}
+hr.new5 {
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
+.scrolling_list{
+	position: fixed;
+}
+
 	.published_date{
 		font-size:15px;
 		margin-left: 15px;
@@ -115,7 +156,7 @@ aside{
 	float:right;
 }
 	article {
-		max-inline-size: var(--size-content-3);
+		max-inline-size: 1000px;
 		margin-inline: auto;
 	}
 
@@ -137,5 +178,13 @@ aside{
 	.tags > * {
 		padding: var(--size-2) var(--size-3);
 		border-radius: var(--radius-round);
+	}
+
+	.prose  pre{
+		width: 800px;
+	}
+	.scrolling_list{
+		display: grid;
+
 	}
 </style>

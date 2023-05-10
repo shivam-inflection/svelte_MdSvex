@@ -1,3 +1,12 @@
+---
+title: Kubernates Overview
+description:
+date: '2023-Apr-16'
+categories:
+  - Kubernetes
+published: true
+---
+
 # Overview
 * Kubernetes is an open source container orchestration platform that automates deployment, management and scaling of applications. 
 * It is also known as “k8s”. K8s as an abbreviation results from counting the eight letters between the "K" and the "s"
@@ -92,7 +101,7 @@
 * A cluster has atleast one master & one worker node. There can be more than one master nodes in a cluster to provide features of failover & high availability.
 * A node can be a physical machine or virtual machine or a VM on cloud. Nodes are having pods inside & pods having container.
 
-<img src="kubernetes-architecture.png" width="600" />
+<img src="/images/Kubernates/kubernetes-architecture.png" width="600" />
 
 * **Master** : 
   - It is responsible for managing the cluster. 
@@ -285,25 +294,25 @@
      - Download the latest release of "kubectl" from following url: https://dl.k8s.io/release/v1.26.0/bin/windows/amd64/kubectl.exe 
      - Create new folder & move the downloaded .exe file to that folder. Copy that folder's path.
      
-     <img src="install_kubectl1.png" width="600" />
+     <img src="/images/Kubernates/install_kubectl1.png" width="600" />
 
      - Open advanced system settings. Inside which go to "Environment variables". Then select "path" under "user variables". Click on "Edit".
 
-     <img src="install_kubectl2.png" width="600" /> 
+     <img src="/images/Kubernates/install_kubectl2.png" width="600" /> 
 
      - Then click on "New". Paste copied folder path here. And click "Ok" 
 
-     <img src="install_kubectl3.png" width="600" /> 
+     <img src="/images/Kubernates/install_kubectl3.png" width="600" /> 
 
     - You may now open command prompt & check this installation using command `kubectl version`. This will prompt you the kubectl client & server versions as shown: 
-     <img src="install_kubectl4.png" width="600" /> 
+     <img src="/images/Kubernates/install_kubectl4.png" width="600" /> 
 
   Step 2 - You need to have a Kubernetes cluster, and the kubectl command-line tool must be configured to communicate with your cluster. If you do not already have a cluster, you can create one by using "minikube". To install minikube: 
   - Download the latest release using following url: https://storage.googleapis.com/minikube/releases/latest/minikube-installer.exe 
   - Move this downloaded binary to the folder containing "kubectl.exe" as we have already added that folder to path of "Environment variables". 
   - You may verify that minikube is installed correctly by using `minikube version` command in command prompt. 
 
-    <img src="install_minikube1.png" width="600" /> 
+    <img src="/images/Kubernates/install_minikube1.png" width="600" /> 
 
   Step 3 - Start your cluster: From a terminal with administrator access, run:
    
@@ -311,7 +320,7 @@
 
    - If you have docker installed, it will take docker as vm driver by default or you can select virtualbox or ssh as vrtual machine manager. 
 
-     <img src="minikube1.png" width="600" /> 
+     <img src="/images/Kubernates/minikube1.png" width="600" /> 
 
   Step 4 - Create new folder. In which create new file name it as "pod2.yml". Write a manifest file to deploy a pod as follows: 
    ```
@@ -335,15 +344,15 @@
    ``` 
 
   Step 5 - Open terminal and run command: `kubectl apply -f pod2.yml`. You will get output as: 
-      <img src="minikube2.png" width="600" /> 
+      <img src="/images/Kubernates/minikube2.png" width="600" /> 
 
   Step 6 - To see the deployment run command : `kubectl get pods` 
       
-   <img src="minikube3.png" width="600" /> 
+   <img src="/images/Kubernates/minikube3.png" width="600" /> 
 
   
   Step 7 - Details of pod can be seen using command : `kubectl describe pod/testpod1`  
-    <img src="minikube4.png" width="600" />
+    <img src="/images/Kubernates/minikube4.png" width="600" />
 
   Step 8 - Create a manifest file called "deploy.yml" for deployment object as follows: 
    ``` 
@@ -375,7 +384,7 @@
    ```
   Step 9 - Apply this deployment using `kubectl apply -f deploy.yml` 
      
-    <img src="minikube5.png" width="600" /> 
+    <img src="/images/Kubernates/minikube5.png" width="600" /> 
 
   Step 10 - Write a manifest file for service and name it as "service.yml" 
    ```
@@ -395,14 +404,14 @@
 
   Step 11 - Apply this manifest using `kubectl apply -f service.yml` 
      
-     <img src="minikube6.png" width="600" /> 
+     <img src="/images/Kubernates/minikube6.png" width="600" /> 
 
 # Service Discovery in K8s
 * Kubernetes service discovery for API-aware clients: 
   - In Kubernetes, an application deployment consists of a pod or set of pods. Those pods are ephemeral, means the IP addresses and ports change constantly. This constant change makes service discovery a significant challenge in the Kubernetes world. 
   - One way Kubernetes provides service discovery is through its endpoints API. With the endpoints API, client software can discover the IP and ports of pods in an application. 
   - In the example below, the Kubernetes control plane ETCD acts as a service registry where all the endpoints are registered and kept up to date by Kubernetes itself. For example, a service mesh can implement logic to use an API for service discovery. That process is the native service discovery provided by Kubernetes. 
-   <img src="service_discovery1.png" width="600" /> 
+   <img src="/images/Kubernates/service_discovery1.png" width="600" /> 
    &nbsp;<br> 
 
 * Kubernetes service discovery using service objects and kube-proxy: 
@@ -410,7 +419,7 @@
   - Since the pods can come and go dynamically in Kubernetes, a service object serves the purpose of never changing the endpoint or IP address that will point to the list of running pods. The requests are also load-balanced over a set of pods if multiple pods are running in the same application. 
   - The clients can use the DNS name of the Kubernetes service. The internal DNS in Kubernetes handles the mapping of service names to service IP addresses. 
   - Using DNS for name to IP mapping is optional, and Kubernetes can use environment variables for this purpose. When a pod is created, some variables are automatically injected into the pod to map the names to IP addresses. A kube-proxy instance running on each worker node handles the underlying implementation of Kubernetes Service. 
-  <img src="service_discovery2.png" width="600" /> 
+  <img src="/images/Kubernates/service_discovery2.png" width="600" /> 
    &nbsp;<br> 
 
 # Helm 
@@ -555,47 +564,47 @@
      type: NodePort 
   ``` 
 * Step 3: Open terminal in the same folder you have created your microservices & manifest files. Now we have to create a helm chart to deploy these manifests. So in terminal, run command `helm create <name>`. Replace <name> with your desired name of chart directory. You may see the following output. 
-    <img src="helm 1.png" width="600" /> 
+    <img src="/images/Kubernates/helm 1.png" width="600" /> 
    
   Open folder in VS Code, you will see the chart structure as shown below: 
 
-  <img src="helm2.png" width="600" /> 
+  <img src="/images/Kubernates/helm2.png" width="600" /> 
    &nbsp;<br> 
 
 * Step 4: Step into templates folder. You may see many readymade templates of manifests for various objects are created automatically.  
-    <img src="helm3.png" width="600" /> 
+    <img src="/images/Kubernates/helm3.png" width="600" /> 
    &nbsp;<br> 
   
   If you want them you may keep them but for now we don't want any of them as we have created our own manifest files. So delete unwanted yaml files from template folder and move our created manifest files to this folder. The chart structure will look like: 
-  <img src="helm4.png" width="600" /> 
+  <img src="/images/Kubernates/helm4.png" width="600" /> 
    &nbsp;<br> 
 
 * Step 5: Now go to terminal and run command `helm install mychart mychart`. This will deploy all your objects on k8s cluster in one go. 
-  <img src="helm5.png" width="600" /> 
+  <img src="/images/Kubernates/helm5.png" width="600" /> 
    &nbsp;<br> 
  Here we can see what exactly get deployed here by this helm install command. To check this run command `kubectl get all`. This will give you all the objects that are deployed on k8s cluster. 
-  <img src="helm6.png" width="600" /> 
+  <img src="/images/Kubernates/helm6.png" width="600" /> 
    &nbsp;<br> 
 
 * Step 6: To check running services on localhost, we need to port forward of services as follows: 
-  <img src="helm6a.png" width="600" /> 
+  <img src="/images/Kubernates/helm6a.png" width="600" /> 
    &nbsp;<br> 
 
-  <img src="helm6b.png" width="600" /> 
+  <img src="/images/Kubernates/helm6b.png" width="600" /> 
    &nbsp;<br>  
 
   Now go to browser and browse these services on respective ports as follows: 
-  <img src="helm7.png" width="600" /> 
+  <img src="/images/Kubernates/helm7.png" width="600" /> 
    &nbsp;<br> 
-   <img src="helm8.png" width="600" /> 
+   <img src="/images/Kubernates/helm8.png" width="600" /> 
    &nbsp;<br> 
-   <img src="helm9.png" width="600" /> 
+   <img src="/images/Kubernates/helm9.png" width="600" /> 
    &nbsp;<br> 
 
   Here we can see that both the services are communicating with each other as from service-1's port we are calling service-2 and we can see the response as well. 
 
 * Step 7: Using single command `helm uninstall mychart`, we can delete all the deployed objects on k8s cluster in one go as shown: 
-  <img src="helm10.png" width="600" /> 
+  <img src="/images/Kubernates/helm10.png" width="600" /> 
    &nbsp;<br> 
 
 # Interservice Communication in K8s
@@ -625,10 +634,10 @@
   ``` 
 
 * Step 2: Let's deploy this to k8s cluster using `kubectl create -f web-server.yaml` 
-   <img src="comm1.png" width="600" /> 
+   <img src="/images/Kubernates/comm1.png" width="600" /> 
    &nbsp;<br> 
   If we browse on localhost port 8080, we will get response as:
-    <img src="comm2.png" width="600" /> 
+    <img src="/images/Kubernates/comm2.png" width="600" /> 
    &nbsp;<br> 
 * Step 3: Now create a manifest for a job which will create another pod and simply call curl command by specifying IP of first pod. (client-job.yaml)
  ```
@@ -647,7 +656,7 @@
     backoffLimit: 4
  ``` 
  Deploy this job on k8s cluster using `kubectl create -f client-job.yaml`and see the response using command `kubectl logs <client-job pod name>` 
-    <img src="comm3.png" width="600" /> 
+    <img src="/images/Kubernates/comm3.png" width="600" /> 
    &nbsp;<br> 
 
 * This is one of the ways to communicate i.e. communication using pod's IP directly. But it is very unreliable. It has following drawbacks: 
@@ -670,11 +679,11 @@
  ```
 
  Let's now deploy this on k8s cluster using `kubectl create -f web-app-service.yaml` and see the deployed service using `kubectl get svc` 
-   <img src="comm4.png" width="600" /> 
+   <img src="/images/Kubernates/comm4.png" width="600" /> 
    &nbsp;<br>
 
 * Whenever a Pod is created, kubernetes injects some environment variables into the pod's environment, these environment variables can be used by containers in the pod to interact with the cluster. So, whenever you create a service, the address of the service will be injected as an environment variable to all the Pods that run within the same namespace. If you exec into any of the pod and run env command, you will see all the variables that are exported by K8s. 
-   <img src="comm5.png" width="600" /> 
+   <img src="/images/Kubernates/comm5.png" width="600" /> 
    &nbsp;<br>
 * Let's create a job to test this quickly. Instead of using Pod IPs or ClusterIP directly, we are using environment variables to dynamically infer the service IP and service port. Let's create a manifest for this job. (job-env.yaml) 
  ```
@@ -699,7 +708,7 @@
  ``` 
 
  * Deploy this job on k8s using `kubectl create -f job-env.yaml` and check logs of the pod created with this job using `kubectl logs <pod_name>`. 
-    <img src="comm6.png" width="600" /> 
+    <img src="/images/Kubernates/comm6.png" width="600" /> 
    &nbsp;<br> 
 
  * The service is working properly as expected and we are able to address the service as desired. In this way we can communicate using environment variables of pod. 
@@ -722,7 +731,7 @@
  ``` 
 
 * Let's deploy the job and see the logs. You will get output as follows: 
-  <img src="comm7.png" width="600" /> 
+  <img src="/images/Kubernates/comm7.png" width="600" /> 
    &nbsp;<br> 
 
 * **Communicating between services across namespaces** :
@@ -742,7 +751,7 @@
 * RabbitMQ is a message-queueing software also known as a message broker or queue manager. 
 * It is software where queues are defined, to which applications connect in order to transfer a message or messages. 
 * We push messages to queues where they can be stored until they are processed or consumed. 
-  <img src="rabbitmq1.png" width="600" /> 
+  <img src="/images/Kubernates/rabbitmq1.png" width="600" /> 
    &nbsp;<br> 
 
 * As shown in picture, we have a producer that produces the message and send it to rabbitmq broker.
@@ -762,59 +771,59 @@
    - Headers Exchange 
    Based on these types, exchange would know how to route the message and to which queue. 
    - **Fanout Exchange**: In this type of exchange, exchange routes the message to each queue connected to it as shown in following picture: 
-      <img src="fanout.png" width="600" /> 
+      <img src="/images/Kubernates/fanout.png" width="600" /> 
    &nbsp;<br> 
 
     So, in fanout type of exchange, the message produced by the producer is get received by all the consumer applications or microservices. We can use this type of exchange in transaction service which sends message containing transaction details to lets say sms service, email service and pdf service.  
 
     - **Direct Exchange**: In this type of exchange, producer sends a message having an extra attribute called "routing key" having some value. Also the bindings are having attributes called as "binding key". So the exchange type of direct, routes the message to the queue having binding key = routing key. As shown in following image: 
-      <img src="direct.png" width="600" /> 
+      <img src="/images/Kubernates/direct.png" width="600" /> 
       &nbsp;<br> 
     
     Consider an example of microservices containing logger, error, warning and info services. In this case, we can use direct exchange as shown in following image: 
-       <img src="direct_ex.png" width="600" /> 
+       <img src="/images/Kubernates/direct_ex.png" width="600" /> 
       &nbsp;<br> 
 
     - **Topic Exchange**: In this type of exchange, the routing key is made up of a pattern called topic in which many keys are separated with dot. We can see it using following example:
-      <img src="topic.png" width="600" /> 
+      <img src="/images/Kubernates/topic.png" width="600" /> 
       &nbsp;<br>  
 
 * Let's get started with RabbitMQ and Node.js: 
   - **Step1**: First create a e-commerce project having three microservices i.e. auth, product and order service. You may find the source code at following git repository: https://github.com/Priyanka-Inflectionzone/rabbitmq-ecommerce.git  
   - **Step2**: Here we are using mongodb as database for storing user, product and order information. Also we are using JWT for auth, express and amqplib for rabbitmq. So we need to install all these. 
   - **Step3**: Then open a terminal and change directory to auth-service. Run the service using command `node index.js`. Then we get console output as service is running at given port as shown below: 
-    <img src="rmq1.png" width="600" /> 
+    <img src="/images/Kubernates/rmq1.png" width="600" /> 
       &nbsp;<br> 
   - **Step4**: Next open Postman. Create new collection as ecommerce and add new post request to "http://localhost:7070/auth/register" as shown in below image: 
-    <img src="rmq2.png" width="600" /> 
+    <img src="/images/Kubernates/rmq2.png" width="600" /> 
       &nbsp;<br> 
   - **Step5**: New user is registered now. Next we need to login so add new post request to postman at auth/login as shown below. Here you will get a token. Cpoy that and go to headers, add new header as authorization and paste the token at value field.
-    <img src="rmq3.png" width="600" /> 
+    <img src="/images/Kubernates/rmq3.png" width="600" /> 
       &nbsp;<br> 
 
   - **Step6**: Now open a new terminal and change directory to product-service. Run this service using command `node index.js`.
-    <img src="rmq4.png" width="600" /> 
+    <img src="/images/Kubernates/rmq4.png" width="600" /> 
       &nbsp;<br> 
 
   - **Step7**: Open postman and add new post request at http://localhost:8080/product/create as shown in image below: 
-      <img src="rmq5.png" width="600" /> 
+      <img src="/images/Kubernates/rmq5.png" width="600" /> 
       &nbsp;<br> 
 
   - **Step8**: Add few more products to the table by using postman requests. Here I have added 4 products as shown below: 
-     <img src="rmq6.png" width="600" /> 
+     <img src="/images/Kubernates/rmq6.png" width="600" /> 
       &nbsp;<br>
   - **Step9**: Next go to terminal, open new terminal and change directory to order-service. And run the service using `node index.js`. As shown in image below our order-service is running on port 9090. 
-     <img src="rmq7.png" width="600" /> 
+     <img src="/images/Kubernates/rmq7.png" width="600" /> 
       &nbsp;<br> 
   - **Step10**: Now go to postman and add new post request to product/buy. Add product ids in body and send request. 
-     <img src="rmq8.png" width="600" /> 
+     <img src="/images/Kubernates/rmq8.png" width="600" /> 
       &nbsp;<br> 
   - Next go to terminal of order-service. We can see a message there as "Consuming Order-service". That means the message sent by product-service to buy the products is consumed by the order service. 
-     <img src="rmq9.png" width="600" /> 
+     <img src="/images/Kubernates/rmq9.png" width="600" /> 
       &nbsp;<br> 
 
   - We can also see that one order entry is added to the order-service database table as shown in image below: 
-      <img src="rmq10.png" width="600" /> 
+      <img src="/images/Kubernates/rmq10.png" width="600" /> 
       &nbsp;<br> 
 
 # Istio 
@@ -845,7 +854,7 @@
   - These proxies mediate and control all network communication between microservices. They also collect and report telemetry on all mesh traffic. 
   - The control plane manages and configures the proxies to route traffic. 
   - The following diagram shows the architecture of Istio: 
-      <img src="istio1a.png" width="600" /> 
+      <img src="/images/Kubernates/istio1a.png" width="600" /> 
       &nbsp;<br> 
   - Components: 
     - Envoy: 

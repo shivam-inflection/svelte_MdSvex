@@ -26,7 +26,7 @@ _**Example**: Let us now build a Random Forest Model for say buying a car._
 
 The trees are built with a **random subset of data points** and their own set of **random features** and each tree would execute independently to provide its decision.
 
-<img src="example.png" width="500"/> 
+<img src="/images/Random-Forest-md-heart_dataset/example.png" width="500"/> 
 
 Assuming the Decision Tree 1 suggests ‘Buy’, Decision Tree 2 Suggests ‘Don’t Buy’ and Decision Tree 3 suggests ‘Buy’, then the **max vote** would be for Buy and the result from Random Forest would be to ‘Buy’
 
@@ -52,7 +52,7 @@ from sklearn.ensemble import RandomForestClassifier
 ```
 This is what the dataset looks like:
 
-<img src="data.png" width="600"/> 
+<img src="/images/Random-Forest-md-heart_dataset/data.png" width="600"/> 
 
 It consists 303 observations and 14 features. There are no null values. 
 
@@ -68,7 +68,7 @@ ax = sns.countplot(data = df, x = 'target', palette = ['green', 'orange'])
 ax.bar_label(ax.containers[0])
 ```
 
-<img src="countplot_obs.png" width="350"/> 
+<img src="/images/svmMd-heart-dataset/countplot_obs.png" width="350"/> 
 
 ---
 ### Duplicate data points
@@ -91,7 +91,7 @@ plt.xticks(rotation = 30)
 plt.show()
 ```
 
-<img src="boxenplot.png" width="550"/> 
+<img src="/images/svmMd-heart-dataset/boxenplot.png" width="550"/> 
 
 #### Range of data
 
@@ -110,7 +110,7 @@ We can remove the observation with this outlier with the following code:
 ```python
 df.loc[df['chol']==df['chol'].max()]
 ```
-> <img src="outlier.png" width="550"/> 
+> <img src="/images/svmMd-heart-dataset/outlier.png" width="550"/> 
 
 ```python
 df.drop(85, axis = 0, inplace = True)
@@ -128,7 +128,8 @@ y = df['target']
 #### Splitting data into training and testing sets
 
 ```python
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 8, stratify = y)
+X_train, X_test, y_train, y_test = train_test_split
+(X, y, test_size = 0.2, random_state = 8, stratify = y)
 ```
 
 ---
@@ -153,7 +154,7 @@ print(model.score(X_train, y_train), model.score(X_test, y_test))
 print(classification_report(y_test, model.predict(X_test)))
 ```
 
-<img src="classification_report.png" width="450"/> 
+<img src="/images/svmMd-heart-dataset/classification_report.png" width="450"/> 
 
 #### Confusion matrix
 
@@ -162,7 +163,7 @@ cm = confusion_matrix(y_test, model.predict(X_test))
 sns.heatmap(cm, annot = True, cmap = 'Blues')
 ```
 
-<img src="confusion_matrix.png" width="300"/> 
+<img src="/images/svmMd-heart-dataset/confusion_matrix.png" width="300"/> 
 
 ### Summary
 

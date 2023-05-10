@@ -1,10 +1,19 @@
+---
+title: Naive Bayes
+description:
+date: '2023-Mar-16'
+categories:
+  - python
+published: true
+---
+
 # Naive Bayes
 
 - **Supervised** learning model
 - Used for **classification** problems
 - Used to find which label belongs to any point.
 - Base on **Bayes Theorem**
-<img src="naive.png" width="600"/>
+<img src="/images/Naive-Bayes-md-Heart_Dataset/naive.png" width="600"/>
 
 ## Formula:
 #### P(Y|X) = P(X|Y)*P(Y)/P(X)
@@ -32,7 +41,7 @@ from sklearn.naive_bayes import GaussianNB
 
 The dataset looks like this:
 
-<img src="data.png" width="600"/> 
+<img src="/images/Naive-Bayes-md-Heart_Dataset/data.png" width="600"/> 
 
 It consists 303 observations and 14 features. There are no null values. 
 > `target = 1` represents the patient is in risk of a heart attack and `target = 0` represents they are safe.
@@ -45,7 +54,7 @@ ax = sns.countplot(data = df, x = 'target', palette = 'hls')
 ax.bar_label(ax.containers[0])
 ```
 
-<img src="countplot_obs.png" width="350"/> 
+<img src="/images/Naive-Bayes-md-Heart_Dataset/countplot_obs.png" width="350"/> 
 
 ---
 
@@ -60,7 +69,7 @@ plt.xticks(rotation = 30)
 plt.show()
 ```
 
-<img src="boxenplot.png" width="550"/> 
+<img src="/images/Naive-Bayes-md-Heart_Dataset/boxenplot.png" width="550"/> 
 
 This plot shows that the range of the data in this dataset is quite uneven and there is an outlier in the cholestrol feature but in case of medical records, removing an outlier observation is not a good idea.
 
@@ -74,7 +83,7 @@ We can remove the observation with this outlier with the following code:
 ```python
 df.loc[df['chol']==df['chol'].max()]
 ```
-> <img src="outlier.png" width="550"/> 
+> <img src="/images/Naive-Bayes-md-Heart_Dataset/outlier.png" width="550"/> 
 
 ```python
 df.drop(85, axis = 0, inplace = True)
@@ -112,7 +121,7 @@ print(model.score(X_train, y_train), model.score(X_test, y_test))
 print(classification_report(y_test, model.predict(X_test)))
 ```
 
-<img src="classification_report.png" width="450"/> 
+<img src="/images/Naive-Bayes-md-Heart_Dataset/classification_report.png" width="450"/> 
 
 ### Confusion matrix
 
@@ -121,7 +130,7 @@ cm = confusion_matrix(y_test, model.predict(X_test))
 sns.heatmap(cm, annot = True, cmap = 'Blues')
 ```
 
-<img src="confusion_matrix.png" width="350"/> 
+<img src="/images/Naive-Bayes-md-Heart_Dataset/confusion_matrix.png" width="350"/> 
 
 ---
 ## Summary

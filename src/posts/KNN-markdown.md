@@ -1,3 +1,12 @@
+---
+title:  K Nearest Neighbors (KNN)
+description: A new datapoint is classified based on the votes of its 'k' nearest neighbors measured in Euclidean distance. 
+date: '2023-May-16'
+categories:
+  - Kubernetes
+published: true
+---
+
 # K Nearest Neighbors (KNN)
 
 - **Supervised** learning model
@@ -10,7 +19,7 @@ A new datapoint is classified based on the votes of its 'k' nearest neighbors me
 
 Example: Here we have chosen k to be 3 and thus, based on the majority of votes, the green point will be classified as a triangle.
 
-<img src="example.png" width="200"/> 
+<img src="/images/KNN-md-heart_dataset/example.png" width="200"/> 
 
 ---
 We can understand this concept more with the help of a heart related dataset. This dataset can be found on kaggle: https://www.kaggle.com/datasets/nareshbhat/health-care-data-set-on-heart-attack-possibility
@@ -35,7 +44,7 @@ from sklearn.neighbors import KNeighborsClassifier
 
 The dataset looks like this:
 
-<img src="data.png" width="600"/> 
+<img src="/images/KNN-md-heart_dataset/data.png" width="600"/> 
 
 It consists 303 observations and 14 features. There are no null values. 
 > `target = 1` represents the patient is in risk of a heart attack and `target = 0` represents they are safe.
@@ -48,7 +57,7 @@ ax = sns.countplot(data = df, x = 'target', palette = 'hls')
 ax.bar_label(ax.containers[0])
 ```
 
-<img src="countplot_obs.png" width="350"/> 
+<img src="/images/KNN-md-heart_dataset/countplot_obs.png" width="350"/> 
 
 ---
 
@@ -63,7 +72,7 @@ plt.xticks(rotation = 30)
 plt.show()
 ```
 
-<img src="boxenplot.png" width="550"/> 
+<img src="/images/KNN-md-heart_dataset/boxenplot.png" width="550"/> 
 
 This plot shows that the range of the data in this dataset is quite uneven and there is an outlier in the cholestrol feature but in case of medical records, removing an outlier observation is not a good idea.
 
@@ -82,7 +91,7 @@ X_std = pd.DataFrame(X_std, columns = list(X.columns))
 
 Now our boxenplot looks like this:
 
-<img src="boxenplot_scaled.png" width="550"/> 
+<img src="/images/KNN-md-heart_dataset/boxenplot_scaled.png" width="550"/> 
 
 ---
 #### Splitting data into training and testing sets
@@ -133,7 +142,7 @@ plt.xticks(k_value)
 plt.grid(linestyle = '--')
 plt.show()
 ```
-<img src="choice_of_k.png" width="600"/> 
+<img src="/images/KNN-md-heart_dataset/choice_of_k.png" width="600"/> 
 
 Best accuracy is given by `k=7`
 
@@ -157,7 +166,7 @@ print(knn.score(X_train, y_train), knn.score(X_test, y_test))
 print(classification_report(y_test, knn.predict(X_test)))
 ```
 
-<img src="classification_report.png" width="450"/> 
+<img src="/images/KNN-md-heart_dataset/classification_report.png" width="450"/> 
 
 #### Confusion matrix
 
@@ -166,7 +175,7 @@ cm = confusion_matrix(y_test, knn.predict(X_test))
 sns.heatmap(cm, annot = True, cmap = 'Blues')
 ```
 
-<img src="confusion_matrix.png" width="300"/> 
+<img src="/images/KNN-md-heart_dataset/confusion_matrix.png" width="300"/> 
 
 ### Summary
 

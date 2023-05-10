@@ -157,8 +157,9 @@ li {
 }
 
 .prose pre {
-	max-inline-size: 100%;
+
+	width: 1300px;
 	padding: 1rem;
 	border-radius: 8px;
-	tab-size: 2;
+	tab-size: 1;
 }

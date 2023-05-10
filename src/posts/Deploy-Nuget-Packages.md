@@ -1,3 +1,10 @@
+---
+title: Deploy Nuget Packages
+description:
+date: '2023-Apr-16'
+categories:
+published: true
+---
 # Deploy Nuget Packages
 ## Github Packages
 * GitHub Packages is a software package hosting service that allows you to host your software packages privately or publicly and use packages as dependencies in your projects. 
@@ -74,8 +81,8 @@
 
 6. Now if you push any changes in project to the `master` branch of repository, the worklow will run. It will build the project, pack the project as Nuget package and push that package to Github Nuget packages registry. You may see that all the steps get check marks as shown in following image:
 
-    <img src="./Images/workflow.png" width="600"/> 
+    <img src="/images/Github-action/workflow.png" width="600"/> 
 
 7. Now go to your Github Profile. Under `Packages`, you may see your Nuget package. 
 
-    <img src="./Images/package.png" width="600"/> 
+    <img src="/images/Github-action/package.png" width="600"/> 
