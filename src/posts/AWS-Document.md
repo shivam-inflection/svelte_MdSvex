@@ -1,18 +1,20 @@
 ---
 title: What is Cloud Computing
-description:
+description: Cloud computing is on demand delivery of IT resources (compute, storage, application) through cloud services platform (AWS, Azure, GCP etc) via internet with pay as you go pricing.
 date: '2023-Apr-16'
 categories:
   - Aws
 published: true
-imageScr: "/cloud.jpeg"
+imageScr: "/aws.png"
 ---
-# What is Cloud Computing
+<!-- # What is Cloud Computing -->
+
+<img src={imageScr} style="height:450px; width:800px;" />
 
 - Cloud computing is on demand delivery of IT resources (compute, storage, application) through cloud services platform (AWS, Azure, GCP etc) via internet with pay as you go pricing.
 - Cloud computing provides a simple way to access servers, storage, databases & set of application services over the internet.
 
-# Why Cloud Computing
+## Why Cloud Computing
 
 - Before cloud, companies were having their own onpremises physical datacenters.
 - For those datacenters, companies needed space, physical servers, networking hardwares, resources like network engineer, OS engineer, datacenter admin, database engineer, etc. And companies have to manage all these resources on their own. In short companies needed to invest lot of money & energy to establish physical datacenters.
@@ -25,7 +27,7 @@ imageScr: "/cloud.jpeg"
   5. **Performance**: The cloud computing services run on a worldwide network of secure datcenters, which are regularly upgraded to the latest generation of fast & efficient computing hardware. This gives several benefits over a single corporate datacenter, including reduced network latency.
   6. **Reliablity**: Cloud computing makes data backup, disaster recovery & business continuity easier & less expensive, because data can be mirrored at multiple sites on the cloud provider's network.
 
-# Types of Cloud Computing
+## Types of Cloud Computing
 
 - Cloud computing provides developers and IT departments with the ability to focus on what matters most and avoid undifferentiated work such as procurement, maintenance, and capacity planning.
 - Each type of cloud service and deployment method provides you with different levels of control, flexibility, and management.
@@ -40,7 +42,7 @@ imageScr: "/cloud.jpeg"
   2. **Hybrid** : A hybrid deployment is a way to connect infrastructure and applications between cloud-based resources and existing resources that are not located in the cloud. The most common method of hybrid deployment is between the cloud and existing on-premises infrastructure to extend, and grow, an organization's infrastructure into the cloud while connecting cloud resources to the internal system.
   3. **On-premises** : The deployment of resources on-premises, using virtualization and resource management tools, is sometimes called the “private cloud”. On-premises deployment doesn’t provide many of the benefits of cloud computing but is sometimes sought for its ability to provide dedicated resources.
 
-# Global Infrastructure
+## Global Infrastructure
 
 - The AWS Cloud infrastructure is built around AWS Regions and Availability Zones.
 - An AWS Region is a physical location in the world where we have multiple Availability Zones.
@@ -48,7 +50,7 @@ imageScr: "/cloud.jpeg"
 - These Availability Zones offer you the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center.
 - The AWS Cloud spans 96 Availability Zones within 30 geographic regions around the world.
 
-# Amazon EC2
+## Amazon EC2
 
 - Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the AWS Cloud.
 - You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage.
@@ -176,7 +178,7 @@ imageScr: "/cloud.jpeg"
   3.  Spot Instances: A Spot Instance is an instance that uses spare EC2 capacity that is available for less than the On-Demand price. Because Spot Instances enable you to request unused EC2 instances at steep discounts, you can lower your Amazon EC2 costs significantly. The hourly price for a Spot Instance is called a Spot price. Spot Instances are a cost-effective choice if you can be flexible about when your applications run and if your applications can be interrupted. For example, Spot Instances are well-suited for data analysis, batch jobs, background processing, and optional tasks.
   4.  Dedicated Hosts: An Amazon EC2 Dedicated Host is a physical server with EC2 instance capacity fully dedicated to your use. Dedicated Hosts allow you to use your existing per-socket, per-core, or per-VM software licenses, including Windows Server, Microsoft SQL Server, SUSE, and Linux Enterprise Server.
 
-# Amazon EBS (Elastic Block Storage):
+## Amazon EBS (Elastic Block Storage):
 
 - Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are raw, unformatted block devices. You can mount these volumes as devices on your instances.
 - EBS volumes that are attached to an instance are exposed as storage volumes that persist independently from the life of the instance. You can create a file system on top of these volumes, or use them in any way you would use a block device (such as a hard drive).
@@ -227,7 +229,7 @@ imageScr: "/cloud.jpeg"
       <img src="/images/Aws-document/EBS-7.png" width="800" height="250"/>
      &nbsp;<br>
 
-# Amazon EFS: 
+## Amazon EFS: 
 * Amazon Elastic File System (Amazon EFS) provides serverless, fully elastic file storage so that you can share file data without provisioning or managing storage capacity and performance.
 * Amazon EFS is built to scale on demand to petabytes without disrupting applications, growing and shrinking automatically as you add and remove files.
 * The service manages all the file storage infrastructure for you, meaning that you can avoid the complexity of deploying, patching, and maintaining complex file system configurations.
@@ -263,7 +265,7 @@ imageScr: "/cloud.jpeg"
       <img src="/images/Aws-document/EFS-8.png" width="900" height="250"/>
      &nbsp;<br>
 
-# Amazon Elastic Load Balancing
+## Amazon Elastic Load Balancing
 * Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones.  
 * It monitors the health of its registered targets, and routes traffic only to the healthy targets. Elastic Load Balancing scales your load balancer capacity automatically in response to changes in incoming traffic. 
 * **Benefits of Loadbalancers**:
@@ -362,7 +364,7 @@ imageScr: "/cloud.jpeg"
    
 * Note: We use auto-scaling feature of AWS instead of alone loadbalncer in real-life scenario.
 
-# AWS Autoscaling
+## AWS Autoscaling
 * AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost. 
 * Using AWS Auto Scaling, it’s easy to setup application scaling for multiple resources across multiple services in minutes.
 * AWS Auto Scaling makes scaling simple with recommendations that allow you to optimize performance, costs, or balance between them. 
@@ -419,7 +421,7 @@ imageScr: "/cloud.jpeg"
    - Fully-managed: AWS Auto Scaling automatically creates target tracking scaling policies for all of the resources in your scaling plan, using your selected scaling strategy to set the target values for each metric.
    - Smart scaling policies: AWS Auto Scaling continually calculates the appropriate scaling adjustments and immediately adds and removes capacity as needed to keep your metrics on target. AWS target tracking scaling policies are self-optimizing, and learn your actual load patterns to minimize fluctuations in resource capacity.
 
-# Amazon S3 (Simple Storage Service)
+## Amazon S3 (Simple Storage Service)
 * Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. 
 * Customers can use Amazon S3 to store and protect any amount of data.
 * Amazon S3 provides management features so that you can optimize, organize, and configure access to your data to meet your specific business, organizational, and compliance requirements.
@@ -518,7 +520,7 @@ imageScr: "/cloud.jpeg"
 
 
 
-# AWS Identity & Access Management (IAM)
+## AWS Identity & Access Management (IAM)
 * AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources.
 * When you create an AWS account, you begin with one sign-in identity that has complete access to all AWS services and resources in the account. This identity is called the AWS account root user and is accessed by signing in with the email address and password that you used to create the account. 
 * Features: 

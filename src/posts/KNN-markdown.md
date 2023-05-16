@@ -1,13 +1,16 @@
 ---
-title:  K Nearest Neighbors (KNN)
-description: A new datapoint is classified based on the votes of its 'k' nearest neighbors measured in Euclidean distance. 
+title:  K Nearest Neighbors(KNN)
+description:  A new datapoint is classified based on the votes of its 'k' nearest neighbors measured in Euclidean distance. 
 date: '2023-May-16'
 categories:
   - Kubernetes
-published: true
+  - Kub
+published:  true
+imageScr: "/cloud.jpg"
 ---
 
-# K Nearest Neighbors (KNN)
+<!-- # K Nearest Neighbors (KNN) -->
+<img src={imageScr} style="height:450px; width:800px;" />
 
 - **Supervised** learning model
 - Used for both **classification** and **regression**

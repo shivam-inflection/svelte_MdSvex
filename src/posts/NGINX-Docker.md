@@ -4,11 +4,13 @@ description: Dockerize a Full-stack application with Node.js, MySQL and Nginx
 date: '2023-Apr-16'
 categories:
   - Lens
-  
 published: true
+imageScr: "/cloud.jpg"
 ---
 
-# Dockerize a Full-stack application with Node.js, MySQL and Nginx
+<img src={imageScr} style="height:450px; width:800px;" />
+
+## Dockerize a Full-stack application with Node.js, MySQL and Nginx
 
 * **Objective** 
     * In this tutorial, we will dockerize an already built full stack application that uses Svelte as front-end, node.js as a backend service and MySQL as the application database.

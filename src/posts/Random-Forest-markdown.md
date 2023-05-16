@@ -1,15 +1,17 @@
 ---
 title: Random Forest 
-description:
+description: A random forest classifier works with data having discrete labels or better known as class. 
 date: '2023-4-16'
 categories:
   - python
 published: true
+imageScr: "/cloud.jpg"
 ---
 
 
 
-# Random Forest 
+<!-- # Random Forest  -->
+<img src={imageScr} style="height:450px; width:800px;" />
 
 - **Supervised** learning model
 - Ensemble learning model used for both **classification** and **regression**

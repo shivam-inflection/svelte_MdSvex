@@ -1,14 +1,19 @@
 ---
 title: Automated Nginx Reverse Proxy for Docker Containers
-description: Second post.
+description: Auto-generate NGINX reverse-proxy configs for docker container.
 date: '2023-Feb-16'
 categories:
   - NGINIX
   - Docker
 published: true
+imageScr: "/cloud.jpg"
+subTitle: 'Prerequisites'
+subTitleId: ['Prerequisites','Overview']
 ---
 
-# Automated Nginx Reverse Proxy for Docker Containers
+<!-- # Automated Nginx Reverse Proxy for Docker Containers -->
+
+<img src={imageScr} style="height:450px; width:800px;" />
 
 ## Objective
 * Auto-generate NGINX reverse-proxy configs for docker container.

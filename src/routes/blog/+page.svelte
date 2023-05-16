@@ -1,29 +1,34 @@
 <script lang="ts">
-	import { formatDate } from '../../lib/utils';
-	import * as config from '$lib/config';
-	import BreadCrumbs from '../../lib/components/Breadcrumbs.svelte';
 
  import Img from "../../lib/components/custom/Img.svelte"
+	import Pagination from '../../lib/components/Pagination.svelte';
 	
 	export let data;
+  import { paginate, DarkPaginationNav } from 'svelte-paginate'
+
+  let items = [...data.posts]
+  let currentPage = 1
+  let pageSize = 9
+  $: paginatedItems = paginate({ items, pageSize, currentPage })
+
+	console.log(items)
+
 </script>
 
-<div class="breadcrumbs">
-<BreadCrumbs />
-</div>
+
 <div>
 	
 
 <div class="container">
-	{#each data.posts as post}
+	{#each paginatedItems as post}
 		<div class="card" id={post.id}>
 			<div class="card__header">
 				<a href={post.slug}>
-					<Img src={`/cloud.jpg`} alt={`image is not avilable`} />
+					<Img src={post.imageScr} alt={`image is not avilable`} />
 				</a>
 			</div>
 			<div class="card__body">
-				<!-- <span class="tag tag-blue">{post.Technology}</span> -->
+				<!-- <span class="tag tag-blue">{post.categories}</span> -->
 				<a href={post.slug}>
 					<h4>{post.title}</h4>
 				</a>
@@ -45,6 +50,17 @@
 		</div>
 	{/each}
 </div>
+<div style="display: flex; justify-content: center;">
+<!-- <Pagination /> -->
+<DarkPaginationNav
+  totalItems="{items.length}"
+  pageSize="{pageSize}"
+  currentPage="{currentPage}"
+  limit="{1}"
+  showStepOptions="{true}"
+  on:setPage="{(e) => currentPage = e.detail.page}"
+/>
+</div>
 </div>
 <style>
 
@@ -56,11 +72,7 @@
 .blog_post{
 	font-size: 14px;
 }
-.breadcrumbs{
-	margin-bottom: 4%;
-	display: flex;
-	
-}
+
 
 
 	@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');

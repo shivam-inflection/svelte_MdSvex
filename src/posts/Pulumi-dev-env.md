@@ -1,13 +1,17 @@
 ---
 title: Pulumi code to create AWS infra for dev env
-description: Second post.
+description: Create new folder and initiate new pulumi project in it.
 date: '2023-4-16'
 categories:
   - Pulumi
 published: true
+imageScr: "/cloud.jpg"
 ---
 
-# Pulumi code to create AWS infra for dev env
+<img src={imageScr} style="height:450px; width:800px;" />
+
+<!-- # Pulumi code to create AWS infra for dev env -->
+
 
 * Create new folder and initiate new pulumi project in it. Run following commands in your terminal.
     `$ mkdir pulumi-dev && cd pulumi-dev`

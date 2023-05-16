@@ -1,14 +1,15 @@
 ---
-title: Support Vector Machine
+title: Support Vector Machine SVM
 description: Second post.
 date: '2023-4-16'
 categories:
   - python
 published: true
+imageScr: "/svm.png"
 ---
 
-
-# Support Vector Machine (SVM)
+<img src={imageScr} style="height:450px; width:800px;" />
+<!-- # Support Vector Machine (SVM) -->
 
 - **Supervised** learning model
 - Used for both **classification** and **regression**

@@ -5,9 +5,11 @@ date: '2023-Mar-16'
 categories:
   - python
 published: true
+imageScr: "/naive-bayes.jpg"
 ---
 
-# Naive Bayes
+<!-- # Naive Bayes -->
+<img src={imageScr} style="height:450px; width:800px;" />
 
 - **Supervised** learning model
 - Used for **classification** problems

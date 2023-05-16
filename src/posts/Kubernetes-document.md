@@ -1,13 +1,16 @@
 ---
 title: Kubernates Overview
-description:
+description: Kubernetes is an open source container orchestration platform that automates deployment, management and scaling of applications. 
 date: '2023-Apr-16'
 categories:
   - Kubernetes
 published: true
+imageScr: "/kubernative.jpg"
 ---
 
-# Overview
+<img src={imageScr} style="height:450px; width:800px;" />
+
+## Overview
 * Kubernetes is an open source container orchestration platform that automates deployment, management and scaling of applications. 
 * It is also known as “k8s”. K8s as an abbreviation results from counting the eight letters between the "K" and the "s"
 * Kubernetes was first developed by engineers at Google before being open sourced in 2014. Later it is donated to CNCF(Cloud Native Computing Foundation)
@@ -15,7 +18,7 @@ published: true
 * Kubernetes originates from Greek, meaning helmsman or pilot, hence the helm in the Kubernetes logo
 * It is written in "Go Language" developed by Google.
 
-# Container management tool:
+## Container management tool:
 * A tool that automates deploying, scaling & managing "containerized apllications" on a group of servers.
 * Container management tools:
     - Kubernetes
@@ -28,13 +31,13 @@ published: true
   - AWS Elastic Kubernetes Service (EKS) 
   - Azure Kubernetes Service (AKS)
 
-# Containerized Appliication:
+## Containerized Appliication:
 * In containerization, a developer packages application along with all its dependencies, libraries and entire environment in a box called as container. 
 * This then can be shipped using platform like docker & then it can be deployed on different systems.
 * Advantage of this kind of deployment is because we know that application is available with all its environments & dependencies, so it will work fine on every system. So the issue that application running on one system & not on another is taken care by containerization. 
 * So "Docker" is a tool designed to make it easier to deploy & run application by using containers & container allow developers to package their application along with all the libraries & dependencies & ship it as a single package.
 
-# Why Kubernetes:
+## Why Kubernetes:
 * We know the advantages of containerization, however in real time, large organizations use many containers for single application. There are hundreds & thousands of containers to ensure availibilty.
 * We have to take care of- 
   - deploying application on multiple containers on multiple servers.
@@ -47,7 +50,7 @@ published: true
 * All these process are very difficult to do manually. So to automate these processes, we have "container management tools".
 * Among them "Kubernetes" is the most popular & widely used tool.
 
-# Features of Kubernetes:
+## Features of Kubernetes:
 1. Automatic bin packing:
    - Let's take an example that we have five servers, each having 10 GB RAM & we have list of jobsto run on these servers. Every job is having different memory requirement.
    - Kubernetes helps us doing this. It will pack these jobs(containers) in bins(servers) in the most efficient way.
@@ -95,7 +98,7 @@ published: true
    - In manifest file, there is a property called "replicas" & there is a count there. So if we configure as "replicas:3", the replication controller create 3 replicas of the pod & will ensure that the desired no. of pods are always maintained.
    - We have another structure called horizontal pod autoscaler. It will monitor the CPU utilization & based on this matrix it sets the no. of pods required & based on that, replication controller will maintain that no. of pods. 
 
-# Architecture of Kubernetes: 
+## Architecture of Kubernetes: 
 * In Kubernetes, we have a master & worker nodes. Together they form a team called "Cluster".
 * When we deploy kubernetes we actuallyget a cluster & cluster is made of set of machines called nodes.
 * A cluster has atleast one master & one worker node. There can be more than one master nodes in a cluster to provide features of failover & high availability.
@@ -144,7 +147,7 @@ published: true
        - Kubernetes supports container runtimes such as Docker, containerd, CRI-O, Rocketlet etc.
        - The most commonly used platform is Docker. 
 
-# Kubernetes Objects:
+## Kubernetes Objects:
 * Kubernetes objects are persistent entities in the Kubernetes system. 
 * Kubernetes uses these entities to represent the state of your cluster. 
 * By creating an object, we are telling kubernetes system what we want our cluster's workload to look like. 
@@ -406,7 +409,7 @@ published: true
      
      <img src="/images/Kubernates/minikube6.png" width="600" /> 
 
-# Service Discovery in K8s
+## Service Discovery in K8s
 * Kubernetes service discovery for API-aware clients: 
   - In Kubernetes, an application deployment consists of a pod or set of pods. Those pods are ephemeral, means the IP addresses and ports change constantly. This constant change makes service discovery a significant challenge in the Kubernetes world. 
   - One way Kubernetes provides service discovery is through its endpoints API. With the endpoints API, client software can discover the IP and ports of pods in an application. 
@@ -422,7 +425,7 @@ published: true
   <img src="/images/Kubernates/service_discovery2.png" width="600" /> 
    &nbsp;<br> 
 
-# Helm 
+## Helm 
 * Helm is the package manager for Kubernetes, focused on automating the Kubernetes applications lifecycle in a simple and consistent way. 
 * The objective of Helm is to make an easy and automated management (install, update, or uninstall) of packages for Kubernetes applications, and deploy them with just a few commands. 
 * As the Kuberenetes platform and ecosystem continued to expand, deploying one and only one Kubernetes configuration file (ie: a single YAML file) was not the norm anymore. There could be multiple clusters to deploy to and multiple resources to orchestrate inside Kubernetes. As the number of YAML files increased, where to even store these files became an issue. Enter Helm to solve these problems. 
@@ -607,7 +610,7 @@ published: true
   <img src="/images/Kubernates/helm10.png" width="600" /> 
    &nbsp;<br> 
 
-# Interservice Communication in K8s
+## Interservice Communication in K8s
 * To begin with, we will create a simple setup that will help us realise different examples better. This is not a production grade set-up or any real-world scenario, this is just a simulation of two pods where one pod communicates with another, the first pod is an HTTP web-server and the second is a simple curl client, which makes a request to the web-server and terminates. We will be creating a Job for the client, because Jobs are the best way to deploy terminating instances on K8s. 
 * Step 1: Create a deployment manifest: We will be using the web-server image provided by katacoda an interactive K8s learning platform.  Lets create a manifest for deployment as follows: (web-server.yaml)
 
@@ -747,7 +750,7 @@ published: true
    - So the general format for addressing a service in another namespace is to use a fully qualified DNS name like the one shown above. It is always suitable to use URLs like this as they are universal and can be addressable anywhere throughout the cluster. Again here is the general format of the URL:
     `{{service_name}}.{{namespace}}.svc.cluster.local` 
 
-# RabbitMQ:
+## RabbitMQ:
 * RabbitMQ is a message-queueing software also known as a message broker or queue manager. 
 * It is software where queues are defined, to which applications connect in order to transfer a message or messages. 
 * We push messages to queues where they can be stored until they are processed or consumed. 
@@ -826,7 +829,7 @@ published: true
       <img src="/images/Kubernates/rmq10.png" width="600" /> 
       &nbsp;<br> 
 
-# Istio 
+## Istio 
 * **Service Mesh**: 
    - A service mesh is a dedicated infrastructure layer that you can add to your applications which allows you to transparently add capabilities like observability, traffic management, and security, without adding them to your own code. 
    - As the deployment of distributed services or microservices, such as in a Kubernetes-based system, grows in size and complexity, it can become harder to understand and manage. 

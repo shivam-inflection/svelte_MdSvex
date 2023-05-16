@@ -8,4 +8,7 @@ export type Post = {
 	categories: Categories[]
 	published: boolean
 	id:string
+	imageScr: string
+	subTitle: string
+subTitleId: string
 }

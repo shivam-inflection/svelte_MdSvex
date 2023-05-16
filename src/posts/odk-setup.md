@@ -1,14 +1,16 @@
 ---
 title: Setup ODK Server on AWS
-description:
+description: setup odk server on aws fisrt aws account is required and then basics of docker and docker commands
 date: '2023-4-16'
 categories:
   - Aws
   - Odk
 published: true
+imageScr: "/cloud.jpg"
 ---
 
-## Setup ODK Server on AWS
+<!-- ## Setup ODK Server on AWS -->
+<img src={imageScr} style="height:450px; width:800px;" />
 
 ## Prerequisites
 

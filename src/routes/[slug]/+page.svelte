@@ -1,8 +1,12 @@
 <script lang="ts">
-	import { formatDate } from '$lib/utils'
+	import Pagination from '../../lib/components/Pagination.svelte';
+	import { formatDate } from '$lib/utils';
+	import { title } from '$lib/config';
+	import { Subtitles } from 'lucide-svelte';
 
-	export let data
-	console.log(data.content);
+	export let data;
+	// console.log("data------", data.meta.subTitle);
+
 </script>
 
 <!-- SEO -->
@@ -12,151 +16,120 @@
 	<meta property="og:title" content={data.meta.title} />
 </svelte:head>
 <div style="display:flex">
-	<div style="width:18%">
+	<div style="width:17%">
+		<!-- {data.meta.subTitle} -->
+ 
 		<div class="scrolling_list">
-	      
-			  <div class="hr_line">
-					 <li><a href="/">Section 1</a></li>
-					 <li><a href="/">Section 2</a></li>
-					 <li><a href="/">Section 3</a></li>
-					 <li><a href="/">Section 4</a></li>
-					 <li><a href="/">Section 5</a></li>
-					 <li><a href="/">Section 6</a></li>
-				<div>
+			
+			
+			<a href="/">Section 3</a>
+			<a href="/">Section 4</a>
+			<a href="/">Section 5</a>
+			<a href="/">Section 6</a>
+		</div>
+		<div id="sidebar">
+			<ul id="topic-list" />
+		</div>
+	</div>
+	<div style="width:87%">
+		<article>
+			<!-- Title -->
+			<hgroup>
+				<h1>{data.meta.title}</h1>
 
+				<p>Published at {formatDate(data.meta.date)}</p>
+			</hgroup>
+
+			<div class="user_Info">
+				<div style="display: flex; ">
+					<div>
+						<img src="/avatar.png" style="width:35px; heigth:25px" alt="Avatar" class="avatar" />
+					</div>
+					<div style="margin-top:5px; margin-left:10px;">
+						<span>User Name</span>
+					</div>
+					<div style="margin-left:10px;">
+						<button style="height:35px; background-color:blue; color:white;">Follow</button>
+					</div>
 				</div>
-				
-				
-			
 			</div>
+			<!-- Tags -->
+			<div class="tags">
+				{#each data.meta.categories as category}
+					<span class="surface-4">&num;{category}</span>
+				{/each}
+			</div>
+
+			<!-- Post -->
 		
-			<div id="sidebar">
-				<ul id="topic-list"></ul>
+			<div class="prose" >
+			<svelte:component this={data.content} />
 			</div>
+		</article>
 	</div>
 </div>
-<div style="width:62%">
-<article>
-  <!-- Title -->
-	<hgroup>
-		
-		<h1 >{data.meta.title}</h1>
-	
-		<p>Published at {formatDate(data.meta.date)}</p>
-	
-	</hgroup>
 
-
-
-  <!-- Tags -->
-	<div class="tags">
-		{#each data.meta.categories as category}
-			<span class="surface-4">&num;{category}</span>
-		{/each}
-	</div>
-
-	
-
-  <!-- Post -->
-	<div class="prose" id="#section1">
-		<svelte:component this={data.content} />
-	</div>
-</article>
-
-</div>
-<div style="width:10%">
-	<aside>
-     <div class="owner_detail ">
-			<div style="display: flex; gap:20px; padding-top:10px">
-        <img src="./avator.jpg" alt="Avatar" class="avatar">
-				<span class="owner_name">Shivam Newase</span>
-			</div>
-			
-			<div style="">
-				<button class="follow_btn">Follow</button>
-				<!-- svelte-ignore a11y-label-has-associated-control -->
-				
-			</div>
-			<div style="display:grid">
-				<span class="owner_Published">Published</span>
-				<span class="published_date">10-Apr-2023</span>
-				<span class="owner_Published">Joined</span>
-				<span class="published_date">10-Apr-2023</span>
-				<span class="owner_Published">Role</span>
-				<span class="published_date">Developer</span>
-			</div>
-          
-					 
-		 </div>
-	</aside>
-</div>
-</div>
 <style>
-
-
-.hr_line {
-	 display: grid;
-}
-hr.new5 {
-  border: 1px solid green;
-  border-radius: 5px;
-}
-
-.scrolling_list{
-	position: fixed;
-}
-
-	.published_date{
-		font-size:15px;
-		margin-left: 15px;
-		margin-bottom: 15px;
-
+	.user_Info {
+		padding-top: 20px;
 	}
-	.owner_Published{
-		font-size:17px;
+
+	/* .hr_line {
+	 display: grid;
+} */
+
+	.scrolling_list {
+		position: fixed;
+	}
+
+	.published_date {
+		font-size: 15px;
+		margin-left: 15px;
+		margin-bottom: 5px;
+	}
+	.owner_Published {
+		font-size: 17px;
 		font-weight: 600;
 		margin-left: 15px;
-
 	}
-	.follow_btn{
-		 width: 90%;
-		 margin-top: 20px;
-		 margin-left: 15px;
-		 background: #000fe6;
-		 border: 1px solid #000fe6;
-		 color: white;
-		 margin-bottom:20px;
-		 font-weight: 200;
-		 font-size: 14px;
+	.follow_btn {
+		width: 90%;
+		margin-top: 20px;
+		margin-left: 15px;
+		background: #000fe6;
+		border: 1px solid #000fe6;
+		color: white;
+		margin-bottom: 20px;
+		font-weight: 200;
+		font-size: 14px;
 	}
-	.owner_name{
+	/* .owner_name{
 		font-weight: 800;
 		margin-top: 8px;
 		margin-left: 8px;
 		font-size: 25px;
 		
 		
-	}
-	.avatar {
+	} */
+	/* .avatar {
   justify-items: center;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 	margin-left: 15px;
-}
-	.owner_detail{
+} */
+	.owner_detail {
 		height: 400px;
 		width: 350px;
 		border: 1px solid rgb(204, 203, 203);
 		border-radius: 8px;
 		justify-content: center;
-		
 	}
-aside{
+	/* aside{
 	float:right;
-}
+} */
 	article {
-		max-inline-size: 1000px;
+		max-inline-size: 1400px;
 		margin-inline: auto;
 	}
 
@@ -171,8 +144,9 @@ aside{
 
 	.tags {
 		display: flex;
+		margin-bottom: 20px;
 		gap: var(--size-3);
-		margin-top: var(--size-7);
+		margin-top: var(--size-4);
 	}
 
 	.tags > * {
@@ -180,11 +154,10 @@ aside{
 		border-radius: var(--radius-round);
 	}
 
-	.prose  pre{
+	.prose pre {
 		width: 800px;
 	}
-	.scrolling_list{
+	.scrolling_list {
 		display: grid;
-
 	}
 </style>

@@ -6,9 +6,11 @@ categories:
   - python
   - Machine Learning
 published: true
+imageScr: "/cloud.jpg"
 ---
 
-# Logistic Regression
+<!-- # Logistic Regression -->
+<img src={imageScr} style="height:450px; width:800px;" />
 
 - **Supervised** learning model
 - Used for **classification** problems

@@ -1,12 +1,14 @@
 ---
-title: Pulumi code to launch AWS EC2 
-description:
+title: Pulumi code to launch AWS EC2 instance with script
+description: In this tutorial, we will write a pulumi code for an EC2 instance with userdata script. 
 date: '10-Apr-2022'
 categories:
   - Pulumi
 published: true
+imageScr: "/cloud.jpg"
 ---
 
+<img src={imageScr} style="height:450px; width:800px;" />
 
 # Pulumi code to launch AWS EC2 instance with script 
 * In this tutorial, we will write a pulumi code for an EC2 instance with userdata script. 

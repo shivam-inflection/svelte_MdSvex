@@ -1,14 +1,15 @@
 ---
 title: Deploy Workloads on EKS Cluster using Lens
-description: Second post.
+description: In this tutorial, we will deploy workloads on Amazon EKS cluster using Lens IDE. 
 date: '2023-Apr-16'
 categories:
   - AWS
-  
 published: true
+imageScr: "/cloud.jpg"
 ---
+<img src={imageScr} style="height:450px; width:800px;" />
 
-# Deploy Workloads on EKS Cluster using Lens
+<!-- # Deploy Workloads on EKS Cluster using Lens -->
 ## Objective
 * In this tutorial, we will deploy workloads on Amazon EKS cluster using Lens IDE. 
 * We will use RDS as database for this service.

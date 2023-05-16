@@ -1,14 +1,16 @@
 ---
 title: Lens Desktop
-description: Second post.
+description: Lens Dekstop installation.
 date: '2023-Mar-16'
 categories:
   - Lens
-  
 published: true
+imageScr: "/cloud.jpg"
 ---
 
-# Install Lens Desktop
+<!-- # Install Lens Desktop -->
+
+<img src={imageScr} style="height:450px; width:800px;" />
 
 ## System requirements
 Before you proceed with Lens Desktop installation, verify that your system meets the system requirements.

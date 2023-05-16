@@ -1,13 +1,19 @@
 ---
-title: WSL Installation
-description: Second post.
+title: WSL Installation Steps
+description: WSL Installation Steps in your system
 date: '2023-4-16'
 categories:
   - Pulumi
 published: true
+imageScr: "/wsl.jpg"
 ---
 
-# WSL Installation Steps 
+
+
+
+<img src={imageScr} style="height:450px; width:800px;" />
+
+<!-- # WSL Installation Steps  -->
 * **Step 1**: Check whether virtualization is enabled in your system. To check this open "Task Manager". Navigate to "Performances" tab. At bottom look for virtualization. If it is enabled then fine, you may proceed to WSL installation. But if it is disabled, you need to enable it in BIOS settings. To do so you may follow this article : https://www.simplilearn.com/enable-virtualization-windows-10-article.
    <img src="/images/Wsl/task.png" width="600" /> 
       &nbsp;<br>

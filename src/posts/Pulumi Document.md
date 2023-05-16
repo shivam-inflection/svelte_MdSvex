@@ -1,11 +1,14 @@
 ---
 title: Pulumi
-description: Second post.
+description: Pulumi is an open source infrastructure as code tool for creating, deploying, and managing cloud infrastructure. 
 date: '2023-4-16'
 categories:
   - Pulumi
 published: true
+imageScr: "/pulumi.png"
 ---
+
+<img src={imageScr} style="height:450px; width:800px;" />
 
 # What is Pulumi 
 * Pulumi is an open source infrastructure as code tool for creating, deploying, and managing cloud infrastructure. 

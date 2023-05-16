@@ -8,9 +8,12 @@ categories:
   - pandas
   - numpy
 published: true
+imageScr: "/cloud.jpg"
 ---
 
-## Decision Tree
+<!-- ## Decision Tree -->
+
+<img src={imageScr} style="height:450px; width:800px;" />
 
 - **Supervised** learning model
 - Used for both **classification** and **regression** problems (mainly for Classification)
